@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../../app/Enums/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Playfair Display', ui-serif, Georgia, serif;
+
+    --color-nude-50: #fdf8f6;
+    --color-nude-100: #f8ece7;
+    --color-nude-200: #f0d9cf;
+    --color-nude-300: #e4bcad;
+}
+
+@layer components {
+    .card {
+        @apply rounded-2xl border border-nude-200 bg-white p-5 shadow-sm;
+    }
+
+    .label {
+        @apply mb-1 block text-sm font-medium text-stone-700;
+    }
+
+    .input {
+        @apply block w-full rounded-xl border border-nude-300 bg-white px-3 py-2.5 text-stone-800 shadow-sm outline-none placeholder:text-stone-400 focus:border-pink-500 focus:ring-2 focus:ring-pink-200;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+    }
+
+    .btn-primary {
+        @apply bg-pink-600 text-white hover:bg-pink-700 focus-visible:ring-2 focus-visible:ring-pink-300;
+    }
+
+    .btn-secondary {
+        @apply border border-nude-300 bg-white text-stone-700 hover:bg-nude-50;
+    }
+
+    .btn-danger {
+        @apply bg-red-50 text-red-700 hover:bg-red-100;
+    }
+
+    .badge {
+        @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    }
+
+    .table {
+        @apply w-full text-left text-sm;
+
+        & th {
+            @apply border-b border-nude-200 px-3 py-2 text-xs font-semibold tracking-wide text-stone-500 uppercase;
+        }
+
+        & td {
+            @apply border-b border-nude-100 px-3 py-3 align-top;
+        }
+    }
+}
+
+/* FullCalendar: match the salon palette */
+.fc {
+    --fc-border-color: var(--color-nude-200);
+    --fc-today-bg-color: var(--color-nude-50);
+    --fc-button-bg-color: var(--color-pink-600);
+    --fc-button-border-color: var(--color-pink-600);
+    --fc-button-hover-bg-color: var(--color-pink-700);
+    --fc-button-hover-border-color: var(--color-pink-700);
+    --fc-button-active-bg-color: var(--color-pink-800);
+    --fc-button-active-border-color: var(--color-pink-800);
+    --fc-non-business-color: rgb(120 113 108 / 0.08);
+    font-size: 0.875rem;
+}
